@@ -12,5 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require underscore.min
+//= require backbone.min
+//= require handlebars
+//= require_self
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
+
+App = {
+  Collections: {},
+  Models: {},
+  Views: {},
+  Routers: {}
+}
+
+$(document).ready(function(){
+  App.Routers.main = new App.Routers.Main();
+  Backbone.history.start();
+});
