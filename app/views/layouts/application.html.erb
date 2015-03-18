@@ -7,8 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= yield %>
 
-<%= yield %>
+  <script type="text/x-handlebars-template" id='contact-template'>
+    <div id={{id}}>
+      <h4>{{last_name}}, {{first_name}}</h4>
+      <h5>{{phone_num}}</h5>
+      <span class='show'>View</span>
+      <span class='edit'>Edit</span>
+      <span class='destroy'>Delete</span>
+    </div>
+  </script>
 
+  <script type="text/x-handlebars-template" id='form-template'>
+    <div class='contactForm'>
+      <form>
+        <input type='text' name='first_name' placeholder='First name' value={{first_name}}>
+        <input type='text' name='last_name' placeholder='Last name' value={{last_name}}>
+        <input type='text' name='phone_num' placeholder='###-###-####' value={{phone_num}}>
+        <button id='updateContact'>Update contact</button>
+      </form>
+    </div>
+  </script>
+
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>

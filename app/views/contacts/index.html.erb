@@ -1,10 +1,15 @@
-<!--%= render 'form' %-->
+<div id='modal' class='hidden'>
+  <span id='closeModal'>x</span>
+  <div class='contactForm' >
+    <form>
+      <input type='text' name='first_name' placeholder='First name'>
+      <input type='text' name='last_name' placeholder='Last name'>
+      <input type='text' name='phone_num' placeholder='###-###-####'>
+      <button id='addContact'>Save contact</button>
+    </form>
+  </div>
+</div>
 
-<button class='newContact'>Add contact</button>
-
-<% @contacts.each do |c| %>
-  <div>
-    <%= c.last_name %>, <%= c.first_name %>
-    <%= c.phone_num %>
-  <div>
-<% end %>
+<div id='contacts'>
+  <button id='newContact'>Add a new contact</button>
+</div>

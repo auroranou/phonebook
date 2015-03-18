@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'contacts#index'
-  resources :contacts, only: [:index, :show]
+  resources :contacts, except: [:new, :edit]
 end
