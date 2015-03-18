@@ -1,0 +1,64 @@
+@import 'main.scss';
+
+#contacts > div {
+  &:nth-child(2n) {
+    background-color: $main-color-l;
+    color: $main-color-d;
+  }
+  &:nth-child(2n+1) {
+    background-color: $main-color;
+    color: $main-color-d;
+  }
+}
+
+.contactDetails > div {
+  padding: 0 1em ;
+  &:nth-child(2) {
+    text-align: center;
+  }
+  &:nth-child(3) {
+    text-align: right;
+  }
+}
+
+.contact > .contactForm {
+  input {
+    font-family: $main-font;
+    color: $main-color-d;
+  }
+}
+
+@media only screen and (max-width: 30em) {
+  .contact > .contactForm {
+    input {
+      display: block;
+      margin: 1em auto;    
+      font-size: 0.5em;
+      width: 80%;
+    }
+  }
+  #updateContact {
+    font-size: 0.5em;
+  }
+}
+
+@media only screen and (min-width: 30.1em) {
+  .contact > .contactForm {
+    input {
+      display: inline;
+      width: 32.5%;
+      font-size: 0.75em;
+    }
+    input:nth-child(3) {
+      float: right;
+    }
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .contact > .contactForm {
+    input {
+      font-size: 1em;
+    }
+  }
+}

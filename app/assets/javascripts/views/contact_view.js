@@ -5,7 +5,7 @@ App.Views.ContactView = Backbone.View.extend({
   events: {
     'click span.show': 'show', 
     'click span.edit': 'edit', 
-    'click span.update': 'update',
+    'click #updateContact': 'update',
     'click span.destroy': 'destroy'
   },
 
@@ -36,7 +36,9 @@ App.Views.ContactView = Backbone.View.extend({
     this.$el.append(this.formTemplate(this.model.toJSON()));
   },
 
-  update: function() {
+  update: function(e) {
+    e.preventDefault();
+
     var data = this.getFormData();
     this.model.save(data);
     this.$('.contactForm').remove();
@@ -45,9 +47,9 @@ App.Views.ContactView = Backbone.View.extend({
 
   getFormData: function() {
     var data = {
-      first: this.$("[name='first_name']").val(),
-      last: this.$("[name='last_name']").val(),
-      phone: this.$("[name='phone_num']").val()
+      first_name: this.$("[name='first_name']").val(),
+      last_name: this.$("[name='last_name']").val(),
+      phone_num: this.$("[name='phone_num']").val()
     }
     return data;
   },

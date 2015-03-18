@@ -44,6 +44,7 @@ App.Views.ContactsView = Backbone.View.extend({
     var matches = _.filter(this.views, function(view) {
       return view.model.cid === cid
     });
+
     return matches[0];
   },
 

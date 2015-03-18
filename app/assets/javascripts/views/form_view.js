@@ -11,37 +11,46 @@ App.Views.FormView = Backbone.View.extend({
     this.render();
   },
 
-    show: function() {
-    App.Routers.main.navigate('new');
-    this.$el.removeClass('hidden');
+  render: function() {
+    this.$('form')[0].reset();
   },
 
   hide: function() {
     App.Routers.main.navigate('');
     this.$el.addClass('hidden');
   },
+  
+  show: function() {
+    App.Routers.main.navigate('new');
+    this.$el.removeClass('hidden');
+  },
 
-  addContact: function() {
+  getFormData: function() {
+    var data = {
+      first_name: this.$("[name='first_name']").val(),
+      last_name: this.$("[name='last_name']").val(),
+      phone_num: this.$("[name='phone_num']").val()
+    }
+
+    return data;
+  },
+
+  addContact: function(e) {
+    e.preventDefault();
+
     var data = this.getFormData();
     this.collection.create(data, {
       success: function(model, response, options) {
-        console.log(model, response);
+        console.log('successfully added: ', model, response);
       },
       error: function(model, response) {
         alert(response.responseJSON.error);
       }
     });
-    this.render();
-    this.hide();
-  },
 
-  getFormData: function() {
-    var data = {
-      first: this.$("[name='first_name']").val(),
-      last: this.$("[name='last_name']").val(),
-      phone: this.$("[name='phone_num']").val()
-    }
-    return data;
+    App.Routers.main.navigate('');
+    this.hide();
+    this.render();
   }
 
 });

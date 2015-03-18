@@ -1,0 +1,39 @@
+@function col-width($num) {
+  @return ($num/12) * 100%;
+}
+
+$grid: 1,2,3,4,5,6,7,8,9,10,11,12;
+
+.row {
+  width: 100%;
+  clear: both;
+}
+
+.col {
+  float: left;
+  display: block;
+}
+
+@media only screen and (max-width: 30em) {
+  @each $i in $grid {
+    .small-#{$i}{
+      width: col-width($i);
+    }
+  }
+}
+
+@media only screen and (min-width: 30.1em) {
+  @each $i in $grid {
+    .med-#{$i}{
+      width: col-width($i);
+    }
+  }
+}
+
+@media screen and (min-width: 48em) {
+  @each $i in $grid {
+    .large-#{$i}{
+      width: col-width($i);
+    }
+  }
+}

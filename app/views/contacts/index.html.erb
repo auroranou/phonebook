@@ -13,3 +13,32 @@
 <div id='contacts'>
   <button id='newContact'>Add a new contact</button>
 </div>
+
+<script type="text/x-handlebars-template" id='contact-template'>
+  <div id={{id}} class='contactDetails row'>
+    <div class='col large-4 med-4 small-12'>
+      <p><b>{{last_name}}</b>, {{first_name}}</p>
+    </div>
+    <div class='col large-4 med-4 small-12'>
+      <p>{{phone_num}}</p>
+    </div>
+    <div class='col large-4 med-4 small-12'>
+      <p>
+        <span class='show'>View</span>
+        <span class='edit'>Edit</span>
+        <span class='destroy'>Delete</span>
+      </p>
+    </div>
+  </div>
+</script>
+
+<script type="text/x-handlebars-template" id='form-template'>
+  <div class='contactForm'>
+    <form>
+      <input type='text' name='first_name' placeholder='First name' value={{first_name}}>
+      <input type='text' name='last_name' placeholder='Last name' value={{last_name}}>
+      <input type='text' name='phone_num' placeholder='###-###-####' value={{phone_num}}>
+      <button id='updateContact'>Update contact</button>
+    </form>
+  </div>
+</script>

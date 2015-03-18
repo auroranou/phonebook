@@ -1,0 +1,60 @@
+/* variables */
+$main-font: 'Courier', monospace;
+$second-font: 'Helvetica', sans-serif;
+$main-color: #ddd;
+$main-color-d: darken($main-color, 20%);
+$main-color-l: lighten($main-color, 20%);
+$accent-color: #FDF240;
+
+/* mixins */
+@mixin box-sizing( $type: border-box ) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing: $type;
+  -o-box-sizing: $type;
+  -ms-box-sizing: $type;
+  box-sizing: $type;
+}
+
+/* large elements */
+* {
+  @include box-sizing();
+}
+
+body {
+  font-family: $main-font;
+  background-color: $main-color-l;
+  z-index: 0;
+}
+
+.container {
+  margin: auto;
+  z-index: 0;
+}
+
+/* small elements */
+header {
+  border-bottom: 1px solid $main-color;
+}
+
+button {
+  display: block;
+  border: none;
+  border-radius: 5px;
+  margin: 2em auto;
+  padding: 1em;
+  font-size: 1em;
+  font-family: $main-font;
+  color: $main-color-d;
+  background-color: $accent-color;
+}
+
+/* typography */
+h1 {
+  text-align: center;
+  color: $accent-color;
+}
+
+/* custom classes and elements */
+.hidden {
+  display: none;
+}

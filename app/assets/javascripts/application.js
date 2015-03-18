@@ -29,7 +29,6 @@ App = {
 }
 
 $(document).ready(function(){
-  console.log('loading')
   App.Routers.main = new App.Routers.Main();
   Backbone.history.start();
 });
