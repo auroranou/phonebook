@@ -17,15 +17,38 @@ App.Views.ContactsView = Backbone.View.extend({
   },
 
   addOne: function() {
-
+    var newView = new App.Views.ContactView({ model: contact });
+    this.views.push(newView);
+    this.$el.append(newView.el);
   },
 
   addAll: function() {
-
+    this.collection.each(function(contact) {
+      this.addOne(contact);
+    }, this)
   },
 
   showForm: function(){
     this.formView.show();
+  },
+
+  filterByCID: function(cid) {
+    this.views.each(function(view) {
+      if (view.model.cid != cid) {
+        view.$el.hide();
+      }
+    });
+  },
+
+  getViewWithCid: function(cid) {
+    var matches = _.filter(this.views, function(view) {
+      return view.model.cid === cid
+    });
+    return matches[0];
+  },
+
+  unfilter: function() {
+    this.$('.contact').show();
   }
 
 });

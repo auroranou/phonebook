@@ -11,15 +11,6 @@ App.Views.FormView = Backbone.View.extend({
     this.render();
   },
 
-  getFormData: function() {
-    var data = {
-      first: this.$("[name='first_name']").val(),
-      last: this.$("[name='last_name']").val(),
-      phone: this.$("[name='phone_num']").val()
-    }
-    return data;
-  },
-
   addContact: function() {
     var data = this.getFormData();
     this.collection.create(data, {
@@ -32,6 +23,15 @@ App.Views.FormView = Backbone.View.extend({
     });
     this.render();
     this.hide();
+  },
+
+  getFormData: function() {
+    var data = {
+      first: this.$("[name='first_name']").val(),
+      last: this.$("[name='last_name']").val(),
+      phone: this.$("[name='phone_num']").val()
+    }
+    return data;
   },
 
   show: function() {

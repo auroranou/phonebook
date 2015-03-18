@@ -21,11 +21,20 @@ App.Routers.Main = Backbone.Router.extend({
   },
 
   index: function() {
-
+    App.Views.contactsView.unfilter();
   },
 
   newContact: function() {
     App.Views.formView.show();
   },
+
+  showContact: function(cid) {
+    App.Views.contactsView.filterByCID(cid);
+  },
+
+  editContact: function(cid) {
+    App.Views.contactsView.filterByCID(cid);
+    App.Views.contactsView.getViewWithCID('c4').edit();
+  }
 
 })
