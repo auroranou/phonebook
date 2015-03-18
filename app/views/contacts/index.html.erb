@@ -1,44 +1,54 @@
 <div id='modal' class='hidden'>
   <span id='closeModal'>x</span>
-  <div class='contactForm' >
-    <form>
+  <form class='contactForm' >
+    <div class='col large-4 med-4 small-12'>
       <input type='text' name='first_name' placeholder='First name'>
+    </div>
+    <div class='col large-4 med-4 small-12'>
       <input type='text' name='last_name' placeholder='Last name'>
+    </div>
+    <div class='col large-4 med-4 small-12'>
       <input type='text' name='phone_num' placeholder='###-###-####'>
-      <button id='addContact'>Save contact</button>
-    </form>
-  </div>
+    </div>
+    <button id='addContact'>Save contact</button>
+  </form>
 </div>
 
-<div id='contacts'>
+<div id='contacts' class='row'>
   <button id='newContact'>Add a new contact</button>
 </div>
 
 <script type="text/x-handlebars-template" id='contact-template'>
   <div id={{id}} class='contactDetails row'>
     <div class='col large-4 med-4 small-12'>
-      <p><b>{{last_name}}</b>, {{first_name}}</p>
+      <b>{{last_name}}</b>, {{first_name}}
     </div>
     <div class='col large-4 med-4 small-12'>
-      <p>{{phone_num}}</p>
+      {{phone_num}}
     </div>
     <div class='col large-4 med-4 small-12'>
-      <p>
-        <span class='show'>View</span>
-        <span class='edit'>Edit</span>
-        <span class='destroy'>Delete</span>
-      </p>
+      <span class='show'>View</span>
+      <span class='edit'>Edit</span>
+      <span class='destroy'>Delete</span>
     </div>
   </div>
 </script>
 
 <script type="text/x-handlebars-template" id='form-template'>
-  <div class='contactForm'>
-    <form>
-      <input type='text' name='first_name' placeholder='First name' value={{first_name}}>
-      <input type='text' name='last_name' placeholder='Last name' value={{last_name}}>
-      <input type='text' name='phone_num' placeholder='###-###-####' value={{phone_num}}>
+  <form class='contactForm'>
+    <div class='row'>
+      <div class='col large-4 med-4 small-12'>
+        <input type='text' name='first_name' placeholder='First name' value={{first_name}}>
+      </div>
+      <div class='col large-4 med-4 small-12'>
+        <input type='text' name='last_name' placeholder='Last name' value={{last_name}}>
+      </div>
+      <div class='col large-4 med-4 small-12'>
+        <input type='text' name='phone_num' placeholder='###-###-####' value={{phone_num}}>
+      </div>
+    </div>
+    <div class='row'>
       <button id='updateContact'>Update contact</button>
-    </form>
-  </div>
+    </div>
+  </form>
 </script>

@@ -1,64 +1,52 @@
 @import 'main.scss';
 
-#contacts > div {
-  &:nth-child(2n) {
+#contacts {
+  .contact:nth-of-type(2n) {
     background-color: $main-color-l;
     color: $main-color-d;
   }
-  &:nth-child(2n+1) {
+  .contact:nth-of-type(2n+1) {
     background-color: $main-color;
     color: $main-color-d;
   }
 }
 
-.contactDetails > div {
-  padding: 0 1em ;
-  &:nth-child(2) {
-    text-align: center;
-  }
-  &:nth-child(3) {
-    text-align: right;
+.contact {
+  padding: 1em;
+}
+
+.contactDetails {
+  line-height: 1.25em;
+  .show:hover, .edit:hover, .destroy:hover {
+    cursor: pointer;
   }
 }
 
-.contact > .contactForm {
-  input {
-    font-family: $main-font;
-    color: $main-color-d;
-  }
+#updateContact {
+  margin: 0.5em auto;
 }
 
 @media only screen and (max-width: 30em) {
-  .contact > .contactForm {
-    input {
-      display: block;
-      margin: 1em auto;    
-      font-size: 0.5em;
-      width: 80%;
-    }
+  .contact {
+    min-height: 100px;
   }
-  #updateContact {
-    font-size: 0.5em;
+  .contactDetails {
+    text-align: center;
   }
 }
 
 @media only screen and (min-width: 30.1em) {
-  .contact > .contactForm {
-    input {
-      display: inline;
-      width: 32.5%;
-      font-size: 0.75em;
+  .contact {
+    min-height: 50px;
+  }
+  .contactDetails > div {
+    &:nth-child(2) {
+      text-align: center;
     }
-    input:nth-child(3) {
-      float: right;
+    &:nth-child(3) {
+      text-align: right;
     }
   }
 }
 
-@media screen and (min-width: 48em) {
-  .contact > .contactForm {
-    input {
-      font-size: 1em;
-    }
-  }
-}
+@media screen and (min-width: 48em) {}

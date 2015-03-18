@@ -1,10 +1,9 @@
 /* variables */
 $main-font: 'Courier', monospace;
-$second-font: 'Helvetica', sans-serif;
 $main-color: #ddd;
-$main-color-d: darken($main-color, 20%);
-$main-color-l: lighten($main-color, 20%);
-$accent-color: #FDF240;
+$main-color-d: darken($main-color, 30%);
+$main-color-l: lighten($main-color, 15%);
+$accent-color: #FFED38;
 
 /* mixins */
 @mixin box-sizing( $type: border-box ) {
@@ -31,11 +30,19 @@ body {
   z-index: 0;
 }
 
-/* small elements */
 header {
+  text-align: center;
   border-bottom: 1px solid $main-color;
 }
 
+footer {
+  padding: 1em;
+  text-align: center;
+  border-top: 1px solid $main-color;
+  margin-top: 1em;
+}
+
+/* small elements */
 button {
   display: block;
   border: none;
@@ -46,15 +53,35 @@ button {
   font-family: $main-font;
   color: $main-color-d;
   background-color: $accent-color;
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: darken($accent-color, 15%);
+  }
+}
+
+input {
+  font-family: $main-font;
+  color: $main-color-d;
+  font-size: 1em;
+  padding: 1em 0.5em;
+  border: none;
+  border-radius: 2px;
+  margin: 1em auto;
+  width: 95%;
 }
 
 /* typography */
 h1 {
-  text-align: center;
+  font-size: 3em;
   color: $accent-color;
 }
 
-/* custom classes and elements */
+p {
+  color: $main-color-d;
+}
+
+/* custom classes */
 .hidden {
   display: none;
 }
