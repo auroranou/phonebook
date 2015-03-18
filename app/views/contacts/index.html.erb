@@ -1,0 +1,10 @@
+<!--%= render 'form' %-->
+
+<button class='newContact'>Add contact</button>
+
+<% @contacts.each do |c| %>
+  <div>
+    <%= c.last_name %>, <%= c.first_name %>
+    <%= c.phone_num %>
+  <div>
+<% end %>
