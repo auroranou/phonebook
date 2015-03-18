@@ -11,6 +11,16 @@ App.Views.FormView = Backbone.View.extend({
     this.render();
   },
 
+    show: function() {
+    App.Routers.main.navigate('new');
+    this.$el.removeClass('hidden');
+  },
+
+  hide: function() {
+    App.Routers.main.navigate('');
+    this.$el.addClass('hidden');
+  },
+
   addContact: function() {
     var data = this.getFormData();
     this.collection.create(data, {
@@ -32,14 +42,6 @@ App.Views.FormView = Backbone.View.extend({
       phone: this.$("[name='phone_num']").val()
     }
     return data;
-  },
-
-  show: function() {
-    this.$el.removeClass('hidden');
-  },
-
-  hide: function() {
-    this.$el.addClass('hidden');
   }
 
 });

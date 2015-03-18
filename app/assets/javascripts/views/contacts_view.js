@@ -16,7 +16,7 @@ App.Views.ContactsView = Backbone.View.extend({
     this.addAll();
   },
 
-  addOne: function() {
+  addOne: function(contact) {
     var newView = new App.Views.ContactView({ model: contact });
     this.views.push(newView);
     this.$el.append(newView.el);
@@ -33,7 +33,7 @@ App.Views.ContactsView = Backbone.View.extend({
   },
 
   filterByCID: function(cid) {
-    this.views.each(function(view) {
+    _.each(this.views, function(view) {
       if (view.model.cid != cid) {
         view.$el.hide();
       }

@@ -10,9 +10,11 @@ App.Routers.Main = Backbone.Router.extend({
   initialize: function() {
     App.Collections.contacts = new App.Collections.Contacts();
     App.Collections.contacts.fetch();
+
     App.Views.formView = new App.Views.FormView(
       { collection: App.Collections.contacts }
     );
+
     App.Views.contactsView = new App.Views.ContactsView(
       { collection: App.Collections.contacts ,
         formView: App.Views.formView

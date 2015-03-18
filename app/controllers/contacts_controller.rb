@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :update, :destroy]
 
   def index
-    @contacts = Contact.all.order(last_name: :desc)
+    @contacts = Contact.all.order(last_name: :asc)
     respond_to do |format|
       format.html
       format.json { render json: @contacts, status: 200 }
