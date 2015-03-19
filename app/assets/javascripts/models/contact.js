@@ -1,4 +1,5 @@
 App.Models.Contact = Backbone.Model.extend({
+
   defaults: {
     first_name: '',
     last_name: '',
@@ -22,4 +23,5 @@ App.Models.Contact = Backbone.Model.extend({
     }
     if (errors.length > 0) return errors;
   }
+  
 });

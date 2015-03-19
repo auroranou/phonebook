@@ -28,7 +28,8 @@ App.Views.ContactsView = Backbone.View.extend({
   addAll: function() {
     this.collection.each(function(contact) {
       this.addOne(contact);
-    }, this)
+    }, this);
+    this.collection.sort({ silent: true })
   },
 
   showForm: function(){
