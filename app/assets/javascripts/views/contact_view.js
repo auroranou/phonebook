@@ -17,6 +17,7 @@ App.Views.ContactView = Backbone.View.extend({
 
     var formSource = $('#form-template').html();
     this.formTemplate = Handlebars.compile(formSource);
+
     if (this.model.isValid()) {
       this.render();
     } else {
@@ -30,8 +31,9 @@ App.Views.ContactView = Backbone.View.extend({
 
   showError: function(error) {
     console.log('contact view errors: ', error);
+    $('.errors').empty();
     _.each(error, function(err) {
-      $('.contactForm').prepend('<p>' + err.message + '</p>')
+      $('.errors').append('<p>' + err.message + '</p>')
     });
   },
 
