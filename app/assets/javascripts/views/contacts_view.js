@@ -18,8 +18,11 @@ App.Views.ContactsView = Backbone.View.extend({
 
   addOne: function(contact) {
     var newView = new App.Views.ContactView({ model: contact });
-    this.views.push(newView);
-    this.$el.append(newView.el);
+    if (contact.isValid()) {
+      console.log("added one");
+      this.views.push(newView);
+      this.$el.append(newView.el);
+    }
   },
 
   addAll: function() {

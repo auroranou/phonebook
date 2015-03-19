@@ -17,7 +17,6 @@ App.Views.ContactView = Backbone.View.extend({
 
     var formSource = $('#form-template').html();
     this.formTemplate = Handlebars.compile(formSource);
-
     if (this.model.isValid()) {
       this.render();
     } else {
@@ -53,7 +52,7 @@ App.Views.ContactView = Backbone.View.extend({
     var self = this;
     var data = this.getFormData();
     this.model.save(data, {
-      // validate: true,
+      validate: true,
       success: function(model, response, options) {
         console.log(model, response);
         App.Routers.main.navigate('');
