@@ -18,7 +18,7 @@ App.Models.Contact = Backbone.Model.extend({
     }
     if (!attrs.phone_num.match(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/)) {
       // return error if phone number contains wrong number of digits
-        errors.push({ message: 'Please enter a valid phone number' });
+        errors.push({ message: 'Please enter a valid phone number, using the ###-###-#### format' });
     }
     if (errors.length > 0) return errors;
   }
