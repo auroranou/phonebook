@@ -19,17 +19,17 @@ App.Views.ContactsView = Backbone.View.extend({
   addOne: function(contact) {
     var newView = new App.Views.ContactView({ model: contact });
     if (contact.isValid()) {
-      console.log("added one");
       this.views.push(newView);
       this.$el.append(newView.el);
     }
+    this.collection.sort({ silent: true });
   },
 
   addAll: function() {
     this.collection.each(function(contact) {
       this.addOne(contact);
     }, this);
-    this.collection.sort({ silent: true })
+    this.collection.sort({ silent: true });
   },
 
   showForm: function(){

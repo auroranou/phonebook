@@ -50,6 +50,7 @@ App.Views.FormView = Backbone.View.extend({
         console.log('there was an error: ', model.validationError);
       }
     });
+    this.render();
   }
 
 });
