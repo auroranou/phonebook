@@ -31,26 +31,25 @@ App.Views.FormView = Backbone.View.extend({
       last_name: this.$("[name='last_name']").val(),
       phone_num: this.$("[name='phone_num']").val()
     }
-
     return data;
   },
 
   addContact: function(e) {
     e.preventDefault();
 
+    var self = this;
     var data = this.getFormData();
     this.collection.create(data, {
+      // validate: true,
       success: function(model, response, options) {
         console.log('successfully added: ', model, response);
+        App.Routers.main.navigate('');
+        self.hide();
       },
       error: function(model, response) {
-        alert(response.responseJSON.error);
+        console.log('there was an error: ', model.validationError);
       }
     });
-
-    App.Routers.main.navigate('');
-    this.hide();
-    this.render();
   }
 
 });

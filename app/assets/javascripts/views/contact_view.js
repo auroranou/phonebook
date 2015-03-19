@@ -10,7 +10,7 @@ App.Views.ContactView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.listenTo(this.model, 'change', this.render)
+    this.listenTo(this.model, 'change', this.render); 
 
     var contactSource = $('#contact-template').html();
     this.contactTemplate = Handlebars.compile(contactSource);
@@ -18,11 +18,22 @@ App.Views.ContactView = Backbone.View.extend({
     var formSource = $('#form-template').html();
     this.formTemplate = Handlebars.compile(formSource);
 
-    this.render();
+    if (this.model.isValid()) {
+      this.render();
+    } else {
+      this.showError(this.model.validationError);
+    }
   },
 
   render: function() {
     this.$el.html(this.contactTemplate(this.model.toJSON()));
+  },
+
+  showError: function(error) {
+    console.log('contact view errors: ', error);
+    _.each(error, function(err) {
+      $('.contactForm').prepend('<p>' + err.message + '</p>')
+    });
   },
 
   show: function() {
@@ -39,10 +50,19 @@ App.Views.ContactView = Backbone.View.extend({
   update: function(e) {
     e.preventDefault();
 
+    var self = this;
     var data = this.getFormData();
-    this.model.save(data);
-    this.$('.contactForm').remove();
-    App.Routers.main.navigate('');
+    this.model.save(data, {
+      // validate: true,
+      success: function(model, response, options) {
+        console.log(model, response);
+        App.Routers.main.navigate('');
+        self.$('.contactForm').remove();
+      },
+      error: function(model, response) {
+        console.log(model.validationError);
+      }
+    });
   },
 
   getFormData: function() {
