@@ -3,7 +3,7 @@ $main-font: 'Courier', monospace;
 $main-color: #ddd;
 $main-color-d: darken($main-color, 30%);
 $main-color-l: lighten($main-color, 15%);
-$accent-color: #FFED38;
+$accent-color: rgba(240,89,71,0.8);
 
 /* mixins */
 @mixin box-sizing( $type: border-box ) {
@@ -51,12 +51,11 @@ button {
   padding: 1em;
   font-size: 1em;
   font-family: $main-font;
-  color: $main-color-d;
+  color: #fff;
   background-color: $accent-color;
   &:hover {
     cursor: pointer;
-    color: #fff;
-    background-color: darken($accent-color, 15%);
+    background-color: rgba(240,89,71,1);
   }
 }
 
