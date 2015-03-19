@@ -4,6 +4,7 @@
   position: fixed;
   background-color: $main-color;
   border-radius: 5px;
+  box-shadow: 0 0 5em 5em $main-color-l;
   z-index: 2;
   .contactForm {
     clear: both;
